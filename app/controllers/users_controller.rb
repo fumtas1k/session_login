@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :login_required, only: %i[new create]
   before_action :set_user, only: %i[show]
   def index
   end
