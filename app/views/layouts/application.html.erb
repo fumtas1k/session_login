@@ -7,10 +7,31 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header class="header">
+      <div class="header__logo"><a href="#">Home</a></div>
+      <button class="hamberger" type="button" id="hamberger" data-target="#gnav">
+        <span class="hamberger__inner">
+          <span class="hamberger__line"></span>
+          <span class="hamberger__txt">MENU</span>
+        </span>
+      </button>
+      <nav class="gnav" id="gnav">
+        <ul class="gnav__list">
+          <% if logged_in? %>
+            <li class="gnav__item"><%= link_to "Profile", user_path(current_user.id), class: "gnav__link" %></li>
+            <li class="gnav__item"><%= link_to "Logout", session_path(current_user.id), method: :delete, class: "gnav__link" %></li>
+          <% else %>
+            <li class="gnav__item"><%= link_to "Signup", new_user_path, class: "gnav__link" %></li>
+            <li class="gnav__item"><%= link_to "Login", new_session_path, class: "gnav__link" %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
     <div class="container">
       <% flash.each do |key, value| %>
         <%= content_tag(:div, value, class: ["alert", "alert-#{key}"]) %>
