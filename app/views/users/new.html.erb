@@ -1,12 +1,5 @@
 <% provide(:title, "Sign up") %>
-
 <h1>Sign up</h1>
-<% if notice %>
-  <div class="alert alert-success ">
-    <%= notice %>
-  </div>
-<% end %>
-
 <div class="form-wrapper">
   <% if @user.errors.any? %>
     <div id="error_explanation" >

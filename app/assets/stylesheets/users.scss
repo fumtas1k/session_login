@@ -60,3 +60,24 @@
   box-shadow: 1px 1px 4px rgba(0,0,0,0.1) inset;
   padding: 5px 10px 4px;
 }
+
+.user-profile-wrapper {
+  width: 90%;
+  margin: auto;
+  padding: 15px;
+}
+
+.user {
+  margin-top: 20px;
+  border-top: 1px dashed #ccc;
+}
+.user__item {
+  padding: 20px 0px;
+  border-bottom: 1px dashed #ccc;
+  margin-bottom: 5px;
+}
+
+.user__ttl {
+  font-weight: bold;
+  font-size: 20px;
+}
